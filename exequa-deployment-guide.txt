@@ -1,0 +1,100 @@
+================================
+EXEQUA WEBSITE - DEPLOYMENT GUIDE
+================================
+
+Your static website is ready! Here's how to host it:
+
+📁 WHAT YOU HAVE:
+- File: exequa-static-website.zip
+- Location: /app/exequa-static-website.zip
+- Inside: index.html + CSS + JavaScript files
+
+🚀 HOW TO HOST:
+
+OPTION 1: Simple Static Hosting (Recommended)
+---------------------------------------------
+1. Netlify (FREE & Easy):
+   - Go to netlify.com
+   - Drag & drop the 'build' folder
+   - Done! Your site is live
+
+2. Vercel (FREE & Fast):
+   - Go to vercel.com
+   - Import project or drag & drop
+   - Instant deployment
+
+3. GitHub Pages (FREE):
+   - Push 'build' folder to GitHub repo
+   - Enable GitHub Pages in settings
+   - Your site is live at yourusername.github.io
+
+OPTION 2: Your Own Server
+--------------------------
+1. Upload the 'build' folder contents to your server
+2. Point your domain to the folder
+3. Make sure your server serves index.html for all routes
+
+For Apache (.htaccess file):
+----------------------------
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+For Nginx (config):
+-------------------
+location / {
+    try_files $uri $uri/ /index.html;
+}
+
+📝 BEFORE HOSTING - UPDATE THESE:
+---------------------------------
+1. Calendly Link: Currently set to 'https://calendly.com/yourlink'
+   - Update in the source code before building
+   
+2. Email: contact@exequa.com
+   - Update in contact section
+
+3. Social Links:
+   - LinkedIn URL
+   - Email address
+
+⚠️ IMPORTANT NOTES:
+-------------------
+1. Contact Form: Currently uses mock data (no backend)
+   - For real form submissions, use:
+     * Formspree (formspree.io) - Easy form backend
+     * Netlify Forms - Built-in if using Netlify
+     * EmailJS (emailjs.com) - Send emails from frontend
+     
+2. All images are from Unsplash (free to use)
+3. Logo placeholder - replace with your actual logo
+
+💡 QUICK TEST:
+--------------
+To test locally before hosting:
+1. Extract the zip file
+2. Open 'index.html' in any browser
+3. Or use: python3 -m http.server 8000
+
+📦 FILE STRUCTURE:
+------------------
+build/
+  ├── index.html (Main HTML file)
+  ├── static/
+  │   ├── css/
+  │   │   └── main.css (All styles)
+  │   └── js/
+  │       └── main.js (All JavaScript)
+  └── asset-manifest.json
+
+🎯 DOWNLOAD YOUR FILES:
+-----------------------
+Look for 'exequa-static-website.zip' in your file browser
+Or download from: /app/exequa-static-website.zip
+
+Need help? Just ask! Good luck with hosting! 🚀
+
+================================
